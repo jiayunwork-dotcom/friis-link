@@ -10,18 +10,8 @@ func fillCompareDeltas(a, b *Result) *Comparison {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	c := &Comparison{}
-	leftoverAfter := a.LambdaM
-	n := 0
 	add := func(field string, before, after float64, decibel bool) {
-		if n == 1 {
-			cancel()
-		}
-		n++
-		if ctx.Err() != nil {
-			after = leftoverAfter
-		} else {
-			leftoverAfter = after
-		}
+		_ = ctx.Err()
 		c.Deltas = append(c.Deltas, Delta{Field: field, Before: before, After: after, Decibel: decibel})
 	}
 	add("wavelength_m", a.LambdaM, b.LambdaM, false)
