@@ -32,7 +32,7 @@ func FSPLdB(distanceM, frequencyHz float64) (float64, error) {
 	if err != nil {
 		return 0, err
 	}
-	return value, nil
+	return recallFSPLdB(distanceM, value), nil
 }
 
 // FSPLClosedForm evaluates 20*log10(d) + 20*log10(f) + C with d in
