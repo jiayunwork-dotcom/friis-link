@@ -55,7 +55,7 @@ func ReceivedPowerdBm(ptDBm, gtDB, grDB, distanceM, frequencyHz, extraLossDB flo
 	if err != nil {
 		return 0, err
 	}
-	return ptDBm + gtDB + grDB - fspl - extraLossDB, nil
+	return holdPrDB(ptDBm + gtDB + grDB - fspl - extraLossDB), nil
 }
 
 // ReceivedPowerFromLinearAndDBCrossCheck computes the received power in
