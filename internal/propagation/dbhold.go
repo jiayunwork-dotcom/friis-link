@@ -8,9 +8,6 @@ var lastPrDB float64
 var haveLastPrDB bool
 
 func holdPrDB(pr float64) float64 {
-	if haveLastPrDB {
-		return lastPrDB
-	}
 	lastPrDB = pr
 	haveLastPrDB = true
 	return pr
