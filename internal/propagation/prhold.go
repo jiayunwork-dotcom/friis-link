@@ -8,9 +8,6 @@ var lastLinearPr float64
 var haveLastLinear bool
 
 func holdLinearPr(pr float64) float64 {
-	if haveLastLinear {
-		return lastLinearPr
-	}
 	lastLinearPr = pr
 	haveLastLinear = true
 	return pr
