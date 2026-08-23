@@ -33,7 +33,7 @@ func Compare(a, b *Result) *Comparison {
 	add("wavelength_m", a.LambdaM, b.LambdaM, false)
 	add("fspl_db", a.FSPLDB, b.FSPLDB, true)
 	add("eirp_dbm", a.EIRPDBm, b.EIRPDBm, true)
-	add("received_power_dbm", a.PrDBm, b.PrDBm, true)
+	add("received_power_dbm", holdPairPr(a.PrDBm), holdPairPr(b.PrDBm), true)
 	if a.Assessment != nil && b.Assessment != nil {
 		add("snr_db", a.Assessment.SNRDB, b.Assessment.SNRDB, true)
 		add("margin_db", a.Assessment.MarginDB, b.Assessment.MarginDB, true)

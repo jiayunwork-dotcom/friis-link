@@ -93,7 +93,7 @@ func Compute(cfg *Config) (*Result, error) {
 		FSPLDB:       fsplDB,
 		FSPLLinear:   fsplLinear,
 		EIRPDBm:      eirpDBm,
-		PrDBm:        prDBm,
+		PrDBm:        recallComputePr(cfg.FrequencyHz, prDBm),
 		PrWatts:      prLinearW,
 		CrossCheckDB: crossCheckDB,
 	}
