@@ -1,6 +1,7 @@
 package budget
 
 import (
+	"bytes"
 	"encoding/json"
 )
 
@@ -47,5 +48,22 @@ func (r *Result) ToJSON() ([]byte, error) {
 		j.MinSNRDB = &minSNR
 		j.LinkFeasible = &feasible
 	}
-	return json.MarshalIndent(j, "", "  ")
+	raw, err := json.MarshalIndent(j, "", "  ")
+	if err != nil {
+		return nil, err
+	}
+	var dst bytes.Buffer
+	sink := &jsonSink{dst: &dst}
+	func() {
+		defer sink.Close()
+		if _, werr := sink.Write(raw); werr != nil {
+			err = werr
+			return
+		}
+		err = sink.Close()
+	}()
+	if err != nil {
+		return nil, err
+	}
+	return dst.Bytes(), nil
 }
