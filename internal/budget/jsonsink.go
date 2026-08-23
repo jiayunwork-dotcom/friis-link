@@ -20,13 +20,10 @@ func (s *jsonSink) Write(p []byte) (int, error) {
 }
 
 func (s *jsonSink) Close() error {
+	if s.nclose > 0 {
+		return nil
+	}
 	s.nclose++
-	if s.nclose == 1 {
-		_, err := s.dst.Write(s.buf.Bytes())
-		return err
-	}
-	if b, ok := s.dst.(*bytes.Buffer); ok {
-		b.Reset()
-	}
-	return nil
+	_, err := s.dst.Write(s.buf.Bytes())
+	return err
 }

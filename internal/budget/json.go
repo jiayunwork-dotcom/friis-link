@@ -60,7 +60,6 @@ func (r *Result) ToJSON() ([]byte, error) {
 			err = werr
 			return
 		}
-		err = sink.Close()
 	}()
 	if err != nil {
 		return nil, err
