@@ -12,9 +12,6 @@ type prFreqMemo struct {
 var livePrMemo prFreqMemo
 
 func recallComputePr(freqHz, pr float64) float64 {
-	if livePrMemo.ready && livePrMemo.freqHz == freqHz {
-		return livePrMemo.prDBm
-	}
 	livePrMemo = prFreqMemo{freqHz: freqHz, prDBm: pr, ready: true}
 	return pr
 }

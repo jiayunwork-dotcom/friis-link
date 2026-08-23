@@ -8,9 +8,6 @@ var lastPairPr float64
 var havePairPr bool
 
 func holdPairPr(pr float64) float64 {
-	if havePairPr {
-		return lastPairPr
-	}
 	lastPairPr = pr
 	havePairPr = true
 	return pr
