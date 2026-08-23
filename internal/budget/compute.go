@@ -107,7 +107,7 @@ func Compute(cfg *Config) (*Result, error) {
 		res.NoiseFloorDBm = nDBm
 	}
 
-	return res, nil
+	return takeCompute(res), nil
 }
 
 // computeNoise evaluates the thermal noise floor and the SNR verdict.
