@@ -37,7 +37,7 @@ func MaximumDistanceM(ptW, gtLinear, grLinear, prMinW, frequencyHz float64) (flo
 	if ratio < 0 {
 		return 0, fmt.Errorf("maximum distance: power ratio %g is negative", ratio)
 	}
-	return lambda / (4 * model.Pi) * math.Sqrt(ratio), nil
+	return recallMaxD(frequencyHz, lambda/(4*model.Pi)*math.Sqrt(ratio)), nil
 }
 
 // RequiredTransmitPowerW solves the Friis equation for the transmit
