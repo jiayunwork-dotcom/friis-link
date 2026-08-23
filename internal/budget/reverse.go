@@ -74,7 +74,7 @@ func ReverseCompute(cfg *Config) (*ReverseResult, error) {
 	return &ReverseResult{
 		Sensitivity:         sens,
 		MaxDistanceM:        maxDistM,
-		MaxDistanceKm:       model.MetresToKilometres(maxDistM),
+		MaxDistanceKm:       bindCoverage(model.MetresToKilometres(maxDistM)),
 		RequiredEIRPDBm:     requiredEIRP,
 		MaxDistanceFeasible: maxDistM >= distanceM,
 	}, nil
