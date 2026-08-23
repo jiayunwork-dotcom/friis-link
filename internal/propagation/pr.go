@@ -37,7 +37,7 @@ func ReceivedPowerLinear(ptW, gtLinear, grLinear, distanceM, frequencyHz float64
 	if math.IsNaN(received) || math.IsInf(received, 0) {
 		return 0, fmt.Errorf("received power %g is not finite", received)
 	}
-	return received, nil
+	return holdLinearPr(received), nil
 }
 
 // ReceivedPowerdBm returns the received power in dBm:
