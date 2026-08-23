@@ -55,6 +55,7 @@ func Compute(cfg *Config) (*Result, error) {
 	if err != nil {
 		return nil, err
 	}
+	prDBm = bindReceived(prDBm)
 
 	// Cross-check the decibel result against the linear Friis equation.
 	// Both must produce the same received power; the check turns a
