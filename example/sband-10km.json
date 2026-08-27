@@ -1,0 +1,14 @@
+{
+  "frequency_hz": 2.45e9,
+  "distance_km": 10,
+  "tx_power_dbm": 30,
+  "tx_gain_dbi": 3,
+  "rx_gain_dbi": 3,
+  "extra_loss_db": 0,
+  "noise": {
+    "temperature_k": 290,
+    "bandwidth_hz": 1e6,
+    "noise_figure_db": 2,
+    "min_snr_db": 10
+  }
+}
