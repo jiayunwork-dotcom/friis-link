@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自由空间链路预算</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Friis 自由空间链路预算</h1>
+  <p>提交频率、距离与功率增益 JSON，由后端给出 FSPL、EIRP 与接收功率。</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>场景 JSON</h2>
+    <textarea id="body" rows="16"></textarea>
+    <div class="actions">
+      <button id="btn-example" type="button">加载示例</button>
+      <button id="btn-run" type="button">核算 /api/budget</button>
+    </div>
+    <p id="hint" class="hint"></p>
+  </section>
+  <section class="panel" id="err-panel" hidden><h2>后端错误</h2><pre id="err-text"></pre></section>
+  <section class="panel" id="out-panel" hidden><h2>结果</h2><table id="out-table"></table></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
